@@ -21,6 +21,20 @@ helper = {
         // 数组反向
         _arr.reverse();
         // 将数组连接成字符串，每一个层级进行一次换行
-        return _arr.join('\n')
+        return _arr.join('\r')
+    },
+    // 列出所有子集对象
+    printChildren: (obj) => {
+        let arr = [];
+        for (let i = 1; i < 20; i++) {
+            try {
+                // 输出 属性索引 属性名称 属性数据类型
+                arr.push(`[${i}] ${obj(i).name} ${typeof obj(i)} ${obj(i)}`)
+            } catch (err) {
+                // 溢出不需要报错
+                break;
+            }
+        }
+        return arr.join('\r')
     }
 }
